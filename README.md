@@ -54,9 +54,9 @@ Nel repository GitHub:
 2. scegliere **GitHub Actions** come sorgente;
 3. inviare le modifiche al branch `main` oppure `master`.
 
-La configurazione Vite calcola automaticamente il percorso base per i project
-site (`/nome-repository/`) e mantiene `/` per i repository
-`nomeutente.github.io`.
+La configurazione Vite usa percorsi relativi, quindi la stessa build funziona
+sia nel project site (`/nome-repository/`) sia alla radice di un dominio
+personalizzato.
 
 La pubblicazione automatica non viene eseguita durante lo sviluppo locale.
 
