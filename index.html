@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pianifica una sessione astronomica con Luna e pianeti, senza account e senza inviare la posizione a server."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Mission Control Junior</title>
+  </head>
+  <body>
+    <main class="console">
+      <div class="console-header-row">
+        <h1 id="app-title">Mission Control Junior</h1>
+        <div class="lang-selector">
+          <select id="select-lingua" aria-label="Seleziona lingua">
+            <option value="it" selected>🇮🇹 IT</option>
+            <option value="fr">🇫🇷 FR</option>
+          </select>
+        </div>
+      </div>
+
+      <form id="form-missione" class="form-group" novalidate>
+        <div class="input-field">
+          <label id="lbl-date" for="data-missione">Scegli la data dell'osservazione:</label>
+          <input type="date" id="data-missione" name="data-missione" required />
+        </div>
+
+        <div class="input-row">
+          <div class="input-field">
+            <label id="lbl-time" for="ora-missione">Ora osservazione (fuso del dispositivo):</label>
+            <input type="time" id="ora-missione" name="ora-missione" value="21:30" required />
+          </div>
+
+          <div class="input-field">
+            <label id="lbl-duration" for="durata-missione">Durata sessione:</label>
+            <select id="durata-missione" name="durata-missione">
+              <option value="15">15 minuti</option>
+              <option value="30">30 minuti</option>
+              <option value="45" selected>45 minuti</option>
+              <option value="60">60 minuti (1 ora)</option>
+              <option value="90">90 minuti (1 ora e mezza)</option>
+              <option value="120">120 minuti (2 ore)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-field">
+          <label id="lbl-instrument" for="strumento-missione">Strumento di osservazione:</label>
+          <select id="strumento-missione" name="strumento-missione">
+            <option value="eyes" selected>👀 Occhio nudo</option>
+            <option value="binoculars">🔭 Binocolo</option>
+            <option value="small-telescope">🔬 Piccolo telescopio</option>
+          </select>
+        </div>
+
+        <div class="input-row">
+          <div class="input-field">
+            <label id="lbl-lat" for="latitudine">Latitudine (-90° a +90°):</label>
+            <input
+              type="number"
+              id="latitudine"
+              name="latitudine"
+              min="-90"
+              max="90"
+              step="0.01"
+              value="41.90"
+              required
+            />
+          </div>
+
+          <div class="input-field">
+            <label id="lbl-lon" for="longitudine">Longitudine (-180° a +180°):</label>
+            <input
+              type="number"
+              id="longitudine"
+              name="longitudine"
+              min="-180"
+              max="180"
+              step="0.01"
+              value="12.50"
+              required
+            />
+          </div>
+        </div>
+        <p id="timezone-note" class="form-help">
+          L'ora usa il fuso orario del dispositivo: per coordinate lontane, verifica che coincida
+          con quello del luogo.
+        </p>
+
+        <div class="actions">
+          <button type="button" id="btn-reset" class="btn-secondary">
+            Ripristina Valori di Default
+          </button>
+        </div>
+      </form>
+
+      <div id="msg-stato" aria-live="polite"></div>
+      <aside id="permanent-solar-safety" class="permanent-solar-safety">
+        Sicurezza solare: non osservare mai il Sole senza un filtro solare certificato montato
+        correttamente e la supervisione di un adulto competente.
+      </aside>
+
+      <!-- Diario di Bordo della Missione -->
+      <section class="logbook-section">
+        <h2 id="logbook-title">📓 Diario di Bordo della Missione</h2>
+        <p id="privacy-note" class="privacy-note">
+          🔒 I tuoi appunti restano nel database locale di questo browser e dispositivo.
+        </p>
+        <div class="logbook-form">
+          <label id="lbl-note" for="nota-diario">Nota della missione</label>
+          <textarea
+            id="nota-diario"
+            placeholder="Scrivi qui i tuoi appunti o quello che hai osservato durante la missione..."
+            rows="3"
+            maxlength="2000"
+          ></textarea>
+          <button type="button" id="btn-salva-nota">💾 Salva Nota nel Diario</button>
+        </div>
+        <p id="logbook-status" class="logbook-status" aria-live="polite"></p>
+        <div id="lista-note-diario" class="logbook-list"></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

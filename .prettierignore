@@ -1,0 +1,7 @@
+.agents/
+02-istruzioni-agy-scaffolding-setup.md
+AGENTS.md
+coverage/
+dist/
+node_modules/
+planeti_illustrati_hd.zip

@@ -1,0 +1,519 @@
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.console {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  max-width: 844px;
+  width: 92%;
+}
+
+.console-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.console-header-row h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #38bdf8;
+}
+
+.lang-selector select {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #0f172a;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.input-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.input-row .input-field {
+  flex: 1;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+input[type='date'],
+input[type='time'],
+input[type='number'],
+select,
+textarea {
+  background-color: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  outline: none;
+}
+
+input[type='date']:focus,
+input[type='time']:focus,
+input[type='number']:focus,
+select:focus,
+textarea:focus {
+  border-color: #38bdf8;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.45);
+  outline-offset: 2px;
+}
+
+.form-help {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  flex: 1;
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0369a1;
+}
+
+button.btn-secondary {
+  background-color: #334155;
+  color: #cbd5e1;
+}
+
+button.btn-secondary:hover {
+  background-color: #475569;
+  color: #ffffff;
+}
+
+.status-box {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  text-align: left;
+  padding: 16px;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+.summary-details p {
+  margin: 4px 0;
+}
+
+.status-box.success {
+  background-color: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #e2e8f0;
+}
+
+.status-box.error {
+  color: #f87171;
+  background-color: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+.planets-section-header {
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #38bdf8;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 6px;
+}
+
+.planets-section-header span {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.astro-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-top: 0.8rem;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 12px;
+  box-shadow: inset 0 0 12px rgba(56, 189, 248, 0.08);
+}
+
+.target-step-number {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.astro-card.hidden-target {
+  opacity: 0.6;
+  border-color: #334155;
+}
+
+.astro-card.hidden-target .target-step-number {
+  color: #64748b;
+  background: rgba(100, 116, 139, 0.15);
+  border-color: #334155;
+}
+
+.astro-graphic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.25));
+}
+
+.planet-img-graphic {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.moon-phase-container {
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.moon-img-graphic {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.astro-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  text-align: left;
+}
+
+.astro-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.astro-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.astro-main-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.astro-sub-detail {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  margin: 1px 0;
+  text-align: left;
+}
+
+.astro-diagram-note {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
+.astro-status-line {
+  margin-top: 6px;
+  font-size: 0.86rem;
+  padding: 5px 9px;
+  border-radius: 6px;
+  display: block;
+  text-align: left;
+}
+
+.astro-status-line.tag-urgent {
+  background-color: rgba(251, 146, 60, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.35);
+}
+
+.astro-status-line.tag-ideal {
+  background-color: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.astro-status-line.tag-rising {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.astro-status-line.tag-offline {
+  background-color: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.solar-warning {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background-color: rgba(251, 191, 36, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  color: #fbbf24;
+  border-radius: 6px;
+  font-size: 0.88rem;
+}
+
+.permanent-solar-safety {
+  margin-top: 1rem;
+  padding: 10px 14px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 6px;
+  color: #fcd34d;
+  background: rgba(120, 53, 15, 0.18);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Stili Diario di Bordo */
+.logbook-section {
+  margin-top: 2rem;
+  text-align: left;
+  border-top: 1px solid #334155;
+  padding-top: 1.2rem;
+}
+
+.logbook-section h2 {
+  font-size: 1.2rem;
+  color: #38bdf8;
+  margin-bottom: 4px;
+}
+
+.privacy-note {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.logbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.logbook-form textarea {
+  resize: vertical;
+  min-height: 70px;
+  font-family: inherit;
+}
+
+.logbook-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logbook-status {
+  min-height: 1.2em;
+  margin: 0 0 0.75rem;
+  color: #34d399;
+  font-size: 0.82rem;
+}
+
+.logbook-status.error {
+  color: #f87171;
+}
+
+.logbook-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.logbook-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.logbook-date {
+  font-size: 0.8rem;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.btn-delete-note {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 0;
+}
+
+.btn-delete-note:hover {
+  background: rgba(248, 113, 113, 0.3);
+}
+
+.logbook-text {
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.empty-logbook {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
+  padding: 12px;
+  background: #0f172a;
+  border: 1px dashed #334155;
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 8px 0;
+  }
+
+  .console {
+    padding: 1rem 0.75rem;
+    width: 96%;
+    border-radius: 10px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .astro-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding: 12px 10px;
+    gap: 0.6rem;
+    position: relative;
+  }
+
+  .target-step-number {
+    align-self: flex-start;
+    margin-top: 0;
+  }
+
+  .astro-graphic-container {
+    margin-bottom: 0.4rem;
+  }
+
+  .astro-info-text {
+    text-align: left;
+    width: 100%;
+  }
+
+  .astro-sub-detail {
+    text-align: left;
+    width: 100%;
+  }
+
+  .astro-header-row {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logbook-section {
+    padding-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}
