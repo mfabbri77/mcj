@@ -67,5 +67,5 @@ Se usi Google Antigravity (AGY) per lo sviluppo, consulta la configurazione sugg
 ## Licenze
 
 Le dipendenze runtime sono `astronomy-engine` (MIT) e `idb-keyval`
-(Apache-2.0). La licenza del progetto deve essere scelta dal proprietario del
-repository.
+(Apache-2.0). Mission Control Junior è distribuito con licenza
+[MIT](LICENSE), Copyright (c) 2026 Arianne Lespinas.
